@@ -1,0 +1,149 @@
+<!doctype html>
+<html>
+<head>
+<title>TAILWIND CSS RESPONSIVE WEB SITE</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            loginbg: '#00ACC1',
+            loginbg2: '#00ACC5'
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+  <style>
+
+    * {
+        font-family: 'Poppins', sans-serif;
+    }
+
+    html, body {
+        scroll-behavior: smooth;
+    }
+
+  </style>
+
+</head>
+<body class="bg-slate-200 select-none">
+
+<div class="bg-slate-200 z-10 ustmenu h-16 flex flex-row justify-center shadow-md fixed top-0 left-0 right-0 ">
+
+        <div class="h-full w-full md:w-1/4 flex justify-center items-center">
+        <img class="m-auto ml-6 h-16 w-16" src="images/tailwind.png">
+        <img id="hamburger" class="m-auto block md:hidden mr-6 h-12 w-12" src="images/hamburger.png">
+        </div>
+
+        <div id="menu" class="hidden md:flex h-full w-2/4 m-auto flex flex-row justify-center items-center gap-12">
+            <a href="#" class="active:scale-90 cursor-pointer text-stone-500 hover:text-stone-900 text-lg tracking-widest">Home</a>
+            <a href="#mission" class="active:scale-90 cursor-pointer text-stone-500 hover:text-stone-900 text-lg tracking-widest">Mission</a>
+            <a href="#team" class="active:scale-90 cursor-pointer text-stone-500 hover:text-stone-900 text-lg tracking-widest">Our Team</a>
+            <a href="#contact" class="active:scale-90 cursor-pointer text-stone-500 hover:text-stone-900 text-lg tracking-widest">Contact</a>
+        </div>
+
+        <div class="hidden md:flex h-full w-1/4 m-auto flex flex-row justify-center items-center gap-2">
+            <button class="bg-loginbg hover:bg-slate-700 rounded text-slate-200 tracking-widest py-2 px-4 ">Sign in</button>
+            <button class="bg-loginbg hover:bg-slate-700 rounded text-slate-200 tracking-widest py-2 px-4 ">Sign Up</button>
+        </div>
+
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      let hamburger = document.getElementById("hamburger");
+      let slidingmenu = document.getElementById("slidingmenu");
+      let close = document.getElementById("close");
+  
+      // Hamburger butonuna tıklanınca menüyü aç
+      hamburger.addEventListener("click", function() {
+        slidingmenu.classList.remove("-left-full");
+        slidingmenu.classList.add("left-0");
+      });
+  
+      // Kapat butonuna tıklanınca menüyü kapat
+      close.addEventListener("click", function() {
+        slidingmenu.classList.remove("left-0");
+        slidingmenu.classList.add("-left-full");
+      });
+  
+      // Menü öğelerine tıklandığında menüyü kapat
+      let menuItems = document.querySelectorAll("#slidingmenu a");
+      menuItems.forEach(function(item) {
+        item.addEventListener("click", function() {
+          slidingmenu.classList.remove("left-0");
+          slidingmenu.classList.add("-left-full");
+        });
+      });
+    });
+  </script>
+  
+  
+<div id="slidingmenu" class="duration-500 z-40 w-screen mt-0 slidingmenu absolute top-0 -left-full">
+
+   
+
+    <ul class="w-full flex flex-col justify-center items-center">
+        <li class="h-16 w-full bg-slate-200 flex justify-center items-center">
+            <img id="close" class="m-auto mr-2" src="images/close.png">
+        </li>
+        <li class="h-16 w-full bg-slate-200 flex justify-center items-center">
+            <a class="text-4xl m-auto text-slate-400 hover:text-slate-800 tracking-widest" href="#home">Home</a>
+        </li>
+        <li class="h-16 w-full bg-slate-200 flex justify-center items-center">
+            <a class="text-4xl m-auto text-slate-400 hover:text-slate-800 tracking-widest" href="#mission">Mission</a>
+        </li>
+        <li class="h-16 w-full bg-slate-200 flex justify-center items-center">
+            <a class="text-4xl m-auto text-slate-400 hover:text-slate-800 tracking-widest" href="#team">Our Team</a>
+        </li>
+        <li class="h-16 w-full bg-slate-200 flex justify-center items-center">
+            <a class="text-4xl m-auto text-slate-400 hover:text-slate-800 tracking-widest" href="#home">Contact</a>
+        </li>
+        <li class="h-16 w-full bg-slate-200 flex justify-center items-center">
+            
+        </li>
+        
+    </ul>
+</div>
+
+<div id="home" class="p-10 md:p-0 section section1 mt-16 md:mt-0 h-fit md:h-screen border-2 border-b-slate-300 flex flex-col md:flex-row justify-center items-center">
+    <div class="section1left h-full w-full sm:w-1/2 bg-lime flex flex-col justify-center items-center md:items-start ps-0 md:ps-10">
+        <h1 class="text-4xl w-full tracking-widest">Rapidly build modern websites without ever leaving your HTML.</h1>
+        <p class="mt-10 text-sm w-full tracking-widest">A utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup.</p>
+        <button class="mt-10 ms-0 bg-slate-700 hover:bg-slate-900 rounded text-slate-200 tracking-widest py-2 px-4">Get Started</button>
+    </div>
+    <div class="py-5 md:py-0 section1right h-full w-full sm:w-1/2 bg-red flex justify-center items-center p-10">
+        <img class="mt-10 md:mt-0 h-96 w-full" src="images/section1.png">
+    </div>
+</div>
+
+<div id="mission" class="py-14 md:py-0 section section1 h-fit md:h-screen border-2 border-b-slate-300  text-center">
+    <h1 class="mt-5 md:mt-60 text-5xl m-auto text-slate-900">“Best practices” don’t actually work.</h1>
+    <h4 class="m-auto mt-10 w-2/3 text-xl text-slate-600">I’ve written a few thousand words on why traditional <span class="text-blue-500 font-bold">“semantic class names”</span> are the reason CSS is hard to maintain, but the truth is you’re never going to believe me until you actually try it. If you can suppress the urge to retch long enough to give it a chance, I really think you’ll wonder how you ever worked with CSS any other way.</h4>
+</div>
+
+<div id="team" class="py-14 mt-5 md:mt-60 section section1 h-fit md:h-screen border-2 border-b-slate-300  text-center flex flex-col justify-center items-center">
+<h1 class="mt-20 text-4xl">OUR TEAM</h1>
+
+<div class="h-fit mt-10 flex flex-col md:flex-row justify-center items-center gap-10">
+<img class="hover:scale-110 hover:duration-500 h-52 w-60 shadow-2xl shadow-slate-800" src="images/team1.jpg">
+<img class="hover:scale-110 hover:duration-500 h-52 w-60 shadow-2xl shadow-slate-800" src="images/team2.jpg">
+<img class="hover:scale-110 hover:duration-500 h-52 w-60 shadow-2xl shadow-slate-800" src="images/team3.jpg">
+<img class="hover:scale-110 hover:duration-500 h-52 w-60 shadow-2xl shadow-slate-800" src="images/team4.jpg">
+</div>
+
+</div>
+
+<div id="contact" class="section section1 h-screen text-center flex flex-col justify-center items-center">
+    <iframe class="mt-10 h-3/4 w-3/4" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3009.9856907523144!2d28.974128600000004!3d41.025569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab9e7a7777c43%3A0x4c76cf3dcc8b330b!2sGalata%20Tower!5e0!3m2!1sen!2str!4v1705086647583!5m2!1sen!2str" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+
+</body>
+</html>
